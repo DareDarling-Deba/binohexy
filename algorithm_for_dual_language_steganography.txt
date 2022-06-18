@@ -1,0 +1,47 @@
+sender's side
+==========================
+
+I) encoding
+------------
+1. user input--> individual capital letter
+2. check index with the tables
+3. convert to binary
+4. parity bit according to tables
+5. print hex values in a file
+
+II) embedding
+-------------
+1. open a new file and the old file got by encoding
+2. for each line in the old file choose a random string and then add the required hex value after it
+3. remove the extra lines and join them together as some jumbled letters of some sort that makes no sense
+4. return the added extra letters on file to the sender as a 'key'
+6. delete the old file and save the stego file
+
+
+receiver's side
+==========================
+
+I) detach
+---------
+1. take input of the stego file and the 'key'* as an array
+2. reverse the 'key' array
+3. keep the pointer to the last character of the file
+4. find the each key pattern in the stego file
+5. when found discard the matching string and print what's after that until the index of the previously saved pointer
+6. save the code in an array
+7. repeat step 4, 5,6 until the pointer reaches to the 0:0 [line : column] of the file
+8. reverse the new found array
+
+II) decode
+----------
+1. know the tables* used by the sender
+2. detach parity and go to the require table according to the table
+3. return the character by using the binary index of the file
+
+
+
+
+
+*********************************************
+*without the 'key' and the tables it is not possible to find the correct imformation from a big range of jumbled word
+©Debalina Biswas
